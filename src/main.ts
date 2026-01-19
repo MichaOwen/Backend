@@ -15,7 +15,8 @@ async function bootstrap() {
   SwaggerModule.setup('documentation', app, documentFactory);
 
 
-  await app.listen(process.env.PORT ?? 3000);
+  const port = await app.listen(process.env.PORT ?? 3000);
+  await app.listen(port);
 }
 bootstrap().catch((err) => { 
   console.error('Error during app bootstrap:', err);
